@@ -1,0 +1,60 @@
+.control-label {
+    float: right;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+.form-group {
+    padding-top: 5px;
+}
+
+.btn-form-container {
+    padding-top: 5px;
+    text-align: center;   
+}
+
+.btn-form-container .btn-form-control {
+    margin-right: 5px;
+    width: 80px;
+}
+
+.rdb-options {
+    padding-top: 9px;
+}
+
+.rdb-label {
+    margin-left: 5px;    
+    margin-right: 8px;
+}
+
+.invalid {
+    border-color: red;
+}
+
+.topic-card {
+	width: 1000px !important;
+	margin-bottom: 40px;
+}
+
+.grid-container {
+    margin-bottom: 30px;
+}
+
+.grid-header {
+    background-color: #575757;
+    padding: 5px 0 5px 0;
+    color: #E5E5E5;
+}
+
+.no-record-label {
+    text-align: center;
+}
+
+.form-container {
+    margin: auto;
+    width: 500px;
+}
+
+.form-label {
+    text-align: center;
+}

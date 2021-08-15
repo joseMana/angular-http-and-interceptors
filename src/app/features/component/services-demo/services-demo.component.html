@@ -1,0 +1,170 @@
+<div class="topic-card">
+    <div class="topic-header">HTTP Client & Interceptors</div>
+    <div class="topic-content">
+
+        <!-- GRID starts here -->
+        <div class="grid-container">
+            <div class="row grid-header">
+                <div class="col-1"></div>
+                <div class="col-1">
+                    <b>Id</b>
+                </div>
+                <div class="col-2">
+                    <b>Name</b>
+                </div>
+                <div class="col-2">
+                    <b>Email</b>
+                </div>
+                <div class="col-2">
+                    <b>Company</b>
+                </div>            
+                <div class="col-2">
+                    <b>Phone</b>
+                </div>
+                <div class="col-1">
+                    <b>Age</b>
+                </div>
+                <div class="col-1"></div>
+            </div>            
+            <div class="row" *ngFor="let user of users">
+                <div class="col-1">
+                    <a href="javascript:void(0)" (click)="onEdit(user.id)">Edit</a>
+                </div>
+                <div class="col-1">
+                    {{ user?.id }}
+                </div>
+                <div class="col-2">
+                    {{ user?.name }}
+                </div>
+                <div class="col-2">
+                    {{ user?.email }}
+                </div>
+                <div class="col-2">
+                    {{ user?.company }}
+                </div>            
+                <div class="col-2">
+                    {{ user?.phone }}
+                </div>
+                <div class="col-1">
+                    {{ user?.age }}
+                </div>
+                <div class="col-1">
+                    <a href="javascript:void(0)" (click)="onDelete(user.id)">Delete</a>
+                </div>
+            </div>
+            <div class="row" *ngIf="users.length < 1">
+                <p class="no-record-label">No user found.</p>
+            </div>
+        </div>
+
+        <!-- FORM starts here -->
+        <div class="form-container">
+            <h3 class="mb-3 form-label">User Registration</h3>
+            <form #userForm="ngForm" (ngSubmit)="userForm.valid && onSubmit(userForm)">
+                <!-- NAME -->
+                <div class="form-group row">
+                    <div class="col-2"> 
+                        <label class="control-label">Name:</label>
+                    </div>                
+                    <div class="col-9">
+                        <input class="form-control"
+                            type="text"
+                            autocomplete="off"
+                            placeholder="Enter your name"
+                            [(ngModel)]="user.name"
+                            name="name"
+                            #name="ngModel"
+                            required
+                            [class.invalid]="name.invalid && name.errors?.required && (name.dirty || name.touched)">
+                        <span class="text-danger"
+                            *ngIf="name.invalid && name.errors?.required && (name.dirty || name.touched)">
+                            Name is required
+                        </span>
+                    </div>
+                </div>
+
+                <!-- EMAIL -->
+                <div class="form-group row">
+                    <div class="col-2"> 
+                        <label class="control-label">Email:</label>
+                    </div>                
+                    <div class="col-9">
+                        <input class="form-control"
+                            type="text"
+                            autocomplete="off"
+                            placeholder="Enter your email address"
+                            [(ngModel)]="user.email"
+                            name="email"
+                            #email="ngModel"
+                            required
+                            pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+                            [class.invalid]="email.invalid && email.errors?.required && (email.dirty || email.touched)">
+                        <span class="text-danger"
+                            *ngIf="email.invalid && email.errors?.required && (email.dirty || email.touched)">
+                            Email is required
+                        </span>
+                        <span class="text-danger"
+                            *ngIf="email.invalid && email.errors?.pattern && (email.dirty || email.touched)">
+                            Invalid email format
+                        </span>
+                    </div>
+                </div>
+
+                <!-- COMPANY -->
+                <div class="form-group row">
+                    <div class="col-2"> 
+                        <label class="control-label">Company:</label>
+                    </div>                
+                    <div class="col-9">
+                        <input class="form-control"
+                            type="text"
+                            autocomplete="off"
+                            placeholder="Enter your company name"
+                            [(ngModel)]="user.company"
+                            name="company">
+                    </div>
+                </div>
+
+                <!-- PHONE -->
+                <div class="form-group row">
+                    <div class="col-2"> 
+                        <label class="control-label">Phone:</label>
+                    </div>                
+                    <div class="col-9">
+                        <input class="form-control"
+                            type="text"
+                            autocomplete="off"
+                            placeholder="Enter your contact number"
+                            [(ngModel)]="user.phone"
+                            name="phone">
+                    </div>
+                </div>   
+
+                <!-- AGE -->
+                <div class="form-group row">
+                    <div class="col-2"> 
+                        <label class="control-label">Age:</label>
+                    </div>                
+                    <div class="col-9">
+                        <input class="form-control"
+                            type="number"
+                            autocomplete="off"
+                            placeholder="Enter your age"
+                            [(ngModel)]="user.age"
+                            name="age">
+                    </div>
+                </div>
+
+                <!-- BUTTONS -->
+                <div class="btn-form-container">
+                    <button class="btn btn-primary btn-form-control"
+                        [disabled]="userForm.invalid"
+                        type="submit">Submit</button>
+                    <button class="btn btn-warning btn-form-control"
+                        type="reset">Reset</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

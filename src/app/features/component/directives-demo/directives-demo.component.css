@@ -1,0 +1,20 @@
+.highlight {
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    width: fit-content;
+}
+
+.highlight-blue {
+    background-color: blue;
+    color: white;
+    font-size: 20px;
+    width: fit-content;
+}
+
+.highlight-green {
+    background-color: green;
+    color: white;
+    font-size: 20px;
+    width: fit-content;
+}

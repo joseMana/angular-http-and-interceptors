@@ -1,0 +1,20 @@
+<h3>Custom Directives</h3>
+<div class="topic-card">
+    <div class="topic-header">Attribute Directive</div>
+    <div class="topic-content">
+
+        <p class="highlight">Hello World 1!</p>
+        <p [class.highlight]="true">Hello World 2!</p>
+
+        <p appHighlight>Hello World 3!</p>
+        <p appHighlight2="blue">Hello World 3!</p>
+    </div>
+</div>
+
+<div class="topic-card">
+    <div class="topic-header">Structural Directive</div>
+    <div class="topic-content">
+
+        <button *appIsAuthorized>Delete</button>
+    </div>
+</div>
